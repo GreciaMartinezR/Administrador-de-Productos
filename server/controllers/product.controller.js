@@ -16,3 +16,17 @@ module.exports.getAll=(request,response)=>{
     .then(products=>response.json(products))
     .catch(err=>response.json(err))
 }
+
+module.exports.getAllProduct = (request, response) => {
+    Product.find({})
+        .then(product => response.json(product))
+        .catch(err => response.json(err))
+}
+
+//Código para ver detalles
+
+module.exports.getProduct = (request, response) => {
+    Product.findOne({_id:request.params.id})
+        .then(product => response.json(product))
+        .catch(err => response.json(err))
+}
